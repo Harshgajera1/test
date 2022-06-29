@@ -1,0 +1,51 @@
+<h2>
+    <%=title%>
+</h2>
+
+<form action="/insertdata" method="post" enctype="multipart/form-data">
+    <table border="1">
+        <tr>
+            <td>Enter Name: </td>
+            <td><input type="text" name="name"></td>
+        </tr>
+
+        <tr>
+            <td>Enter Gender: </td>
+            <td><input type="radio" name="gender" value="male">Male
+                <input type="radio" name="gender" value="female">Female
+            </td>
+        </tr>
+
+        <tr>
+            <td>Enter Hobbies: </td>
+            <td><input type="checkbox" name="hobby[]" value="swimming">swimming
+                <input type="checkbox" name="hobby[]" value="reading">reading
+                <input type="checkbox" name="hobby[]" value="coding">coding
+                <input type="checkbox" name="hobby[]" value="other">other
+            </td>
+        </tr>
+
+    <% lan = ['hindi','gujrati','english','marathi','malyalam'] %>
+        <tr>
+            <td>Enter language: </td>
+            <td><select name="language">
+                <option>--select language--</option>
+            <%for(var i=0; i<lan.length; i++){%>
+                <option value="<%=lan[i]%>"><%=lan[i]%></option>
+            <%}%>
+            </select></td>
+        </tr>
+
+        <tr>
+            <td>Image: </td>
+            <td><input type="file" name="avatar"></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="submit" name="submit" value="Insert"></td>
+        </tr>
+    </table>
+</form>
+
+<a href="/showdata">Show Data</a>

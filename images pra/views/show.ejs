@@ -1,0 +1,27 @@
+<h2><%=title%></h2>
+<!-- <h2><%=appdata%></h2> -->
+
+<table border="1"> 
+    <tr>
+        <td>Name</td>
+        <td>Gender</td>
+        <td>Hobby</td>
+        <td>Language</td>
+        <td>Image</td>
+        <td>Action</td>
+        <td>Update</td>
+    </tr>
+    <% for(var data of appdata){%>
+        <tr>
+            <td><%=data.name%></td>
+            <td><%=data.gender%></td>
+            <td><%=data.hobby%></td>
+            <td><%=data.language%></td>
+            <td><img src="<%=data.avatar%>" height="50"></td>
+            <td><a href="/deletedata/<%=data.id%>">Delete</a></td>
+            <td><a href="/updatedata/?id=<%=data.id%>">Update</a></td>
+        </tr>
+    <%} %>
+</table>
+
+<a href="/">Home Page</a>

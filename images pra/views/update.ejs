@@ -1,0 +1,48 @@
+<h2><%=title%></h2>
+
+<form action="/editdata" method="post" >
+    <table border="1">
+        <input type="hidden" name="id" value="<%=updata.id%>">
+        <tr>
+            <td>Enter Name: </td>
+            <td><input type="text" name="name" value="<%=updata.name%>"></td>
+        </tr>
+
+        <tr>
+            <td>Enter Gender: </td>
+            <td><input type="radio" name="gender" value="male" <% if(updata.gender=='male'){%> <%='checked'%> <%} %>>Male
+                <input type="radio" name="gender" value="female" <% if(updata.gender == 'female'){%> <%= 'checked' %><%} %> >Female
+            </td>
+        </tr>
+
+        <tr>
+            <td>Enter Hobbies: </td>
+            <td><input type="checkbox" name="hobby[]" value="swimming" <% if(updata.hobby.includes('swimming')){%> <%= 'checked' %> <%} %> >swimming
+                <input type="checkbox" name="hobby[]" value="reading" <% if(updata.hobby.includes('reading')){%> <%= 'checked' %> <%} %> >reading
+                <input type="checkbox" name="hobby[]" value="coding" <% if(updata.hobby.includes('coding')){%> <%= 'checked' %> <%} %> >coding
+                <input type="checkbox" name="hobby[]" value="other" <% if(updata.hobby.includes('other')){%> <%= 'checked' %> <%} %> >other
+            </td>
+        </tr>
+
+    <% lan = ['hindi','gujrati','english','marathi','malyalam'] %>
+        <tr>
+            <td>Enter language: </td>
+            <td><select name="language">
+                <option>--select language--</option>
+            <%for(var i=0; i<lan.length; i++){%>
+                <option value="<%=lan[i]%>" <% if(lan[i]==updata.language){%> <%= 'selected' %> <%} %>><%=lan[i]%></option>
+            <%}%>
+            </select></td>
+        </tr>
+
+        <tr>
+            <td>Image: </td>
+            <td><input type="file" name="avatar"></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="submit" name="submit" value="Update"></td>
+        </tr>
+    </table>
+</form>
